@@ -1,15 +1,5 @@
-import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 export default function Home() {
-  return (
-    <main>
-      <Link
-        href={{
-          pathname: '/auth/login',
-        }}
-      >
-        Route to Login page
-      </Link>
-    </main>
-  );
+  redirect('/dashboard');
 }

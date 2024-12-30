@@ -1,0 +1,32 @@
+export const sidebarItems = [
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    icon: 'dashboard',
+  },
+  {
+    path: '/users',
+    name: 'Users',
+    icon: 'user',
+  },
+  {
+    path: '/influencers',
+    name: 'Influencers',
+    icon: 'people',
+  },
+  {
+    path: '/recipes',
+    name: 'Recipes',
+    icon: 'fork-and-spoon',
+  },
+  {
+    path: '/flagged-content',
+    name: 'Flagged Content',
+    icon: 'flag',
+  },
+  {
+    path: '/subscriptions',
+    name: 'Subscriptions',
+    icon: 'crown',
+  },
+];

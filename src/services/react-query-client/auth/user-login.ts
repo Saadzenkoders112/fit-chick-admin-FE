@@ -40,7 +40,7 @@ export const UserLoginMutationHook = (): UseMutationResult<
    * @throws Will throw an error if the API call fails.
    */
   const userLoginFn = async (payload: USER_LOGIN_PAYLOAD): Promise<unknown> => {
-    const response = await POST(URL.USER_LOGIN, payload);
+    const response = await POST(URL.ADMIN_LOGIN, payload);
     return response;
   };
 
