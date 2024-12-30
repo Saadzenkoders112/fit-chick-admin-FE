@@ -40,7 +40,9 @@ export default function RootLayout({
         ></link>
       </head>
       <body className={inter.className}>
-        <div className={`w-screen h-screen ${myFonts.className}`}>
+        <div
+          className={`w-screen h-screen overflow-x-hidden ${myFonts.className}`}
+        >
           <Providers>{children}</Providers>
         </div>
       </body>

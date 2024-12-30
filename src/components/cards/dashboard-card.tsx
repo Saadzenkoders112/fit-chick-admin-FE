@@ -3,7 +3,7 @@ import React from 'react';
 
 const DashboardCard = () => {
   return (
-    <div className='flex gap-2 p-2 rounded-lg bg-containerBgColor w-[320px]'>
+    <div className='flex gap-2 p-2 rounded-lg bg-containerBgColor md:w-[320px] sm:w-[260px] h-max'>
       <Image
         src='/assets/images/dashboard-user.svg'
         alt=''
@@ -11,8 +11,8 @@ const DashboardCard = () => {
         width={50}
       />
       <div className='flex flex-col gap-1'>
-        <p className='font-playfair text-sm'>Total Users</p>
-        <p className='text-xl text-primary'>2,362</p>
+        <p className='font-playfair sm:text-sm text-xs'>Total Users</p>
+        <p className='sm:text-xl text-base text-primary'>2,362</p>
       </div>
     </div>
   );

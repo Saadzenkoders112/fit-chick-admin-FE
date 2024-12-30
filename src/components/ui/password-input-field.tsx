@@ -16,7 +16,6 @@ const PasswordInput: React.FC<CustomInputProps> = ({
   ...rest
 }) => {
   const [isEye, setIsEye] = useState<boolean>(false);
-  console.log(isEye);
   return (
     <div className='flex flex-col gap-2'>
       <div className='flex gap-1'>
@@ -31,7 +30,7 @@ const PasswordInput: React.FC<CustomInputProps> = ({
         )}
       </div>
       <div
-        className={`flex justify-between items-center gap-2 rounded-lg p-4 group border-2 focus-within:border-primary ${className ? className : ''}`}
+        className={`flex justify-between items-center gap-2 rounded-lg p-4 group border focus-within:border-primary ${className ? className : ''}`}
       >
         <input
           type={isEye ? 'text' : 'password'}
