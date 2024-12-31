@@ -2,11 +2,19 @@ import {
   Table,
   TableBody,
   TableCell,
+  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
 import { UsertTableHeaders } from '@/constants/table';
+
+import arrowRight from '../../../../public/assets/images/arrow-right.svg';
+import Image from 'next/image';
+import { Button } from '../../ui/button';
+import { useRouter } from 'next/navigation';
+import TableFoot from '../table-components/table-footer';
+import { useState } from 'react';
 
 const data = [
   {
@@ -92,13 +100,19 @@ const data = [
 ];
 
 const UserTable = () => {
+  // States for table pagination inside footer
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [limit, setLimit] = useState<number>(10);
+
+  const router = useRouter();
   return (
     <Table>
-      <TableHeader className='bg-primary text-white font-playfair'>
+      <TableHeader className='bg-primary text-white font-playfair text-xs'>
         <TableRow>
           {UsertTableHeaders?.map((header, index) => (
             <TableHead key={index}>{header}</TableHead>
           ))}
+          <TableHead></TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -117,12 +131,39 @@ const UserTable = () => {
                 {item.subscription_plan}
               </p>
             </TableCell>
-            <TableCell className='text-right'>{item.end_date}</TableCell>
-            <TableCell className='text-right'>{item.status}</TableCell>
-            <TableCell className='text-right'>{item.referrals}</TableCell>
+            <TableCell>{item.end_date}</TableCell>
+            <TableCell>{item.status}</TableCell>
+            <TableCell>{item.referrals}</TableCell>
+            <TableCell>
+              <Button
+                className='bg-white hover:bg-white w-12'
+                onClick={() => router.push('/users/user-details')}
+              >
+                <Image
+                  src={arrowRight}
+                  alt='arrow-right'
+                  height={18}
+                  width={18}
+                />
+              </Button>
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
+      <TableFooter>
+        <TableRow>
+          <TableCell colSpan={8}>
+            <TableFoot
+              rowsPerPage={limit}
+              setRowsPerPage={setLimit}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              rowsOption={[5, 10, 20, 50]}
+              total={20}
+            />
+          </TableCell>
+        </TableRow>
+      </TableFooter>
     </Table>
   );
 };

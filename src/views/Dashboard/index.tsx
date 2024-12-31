@@ -1,5 +1,5 @@
 import DashboardCard from '@/components/cards/dashboard-card';
-import DashboardChart from '@/components/ui/dashboard-chart';
+import DashboardChart from '@/components/charts/dashboard-chart';
 import AppHeader from '@/components/ui/header';
 import React from 'react';
 

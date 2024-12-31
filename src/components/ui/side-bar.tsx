@@ -10,11 +10,11 @@ const AppSideBar = () => {
   const pathName = usePathname();
   const [active, setActive] = useState<string>('');
   const router = useRouter();
+  const pathname = pathName.split('/')[1];
 
   useEffect(() => {
-    const pathname = pathName.split('/')[1];
     setActive(pathname);
-  }, []);
+  }, [pathname]);
 
   return (
     <div className='w-[250px] h-auto min-h-full lg:flex hidden flex-col justify-between p-4 bg-containerBgColor'>

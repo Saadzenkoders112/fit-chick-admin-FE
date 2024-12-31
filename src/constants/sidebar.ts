@@ -10,7 +10,7 @@ export const sidebarItems = [
     icon: 'user',
   },
   {
-    path: '/influencers',
+    path: '/influencers/all/pending',
     name: 'Influencers',
     icon: 'people',
   },

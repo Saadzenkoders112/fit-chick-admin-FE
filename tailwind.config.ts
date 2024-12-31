@@ -19,7 +19,7 @@ const config: Config = {
       },
       colors: {
         primary: '#6E683B',
-        secondary: '#E88FB9',
+      secondary: '#E88FB9',
         textPrimary: '#212636',
         tableBrownText: '#A18233',
         tableGreenText: '#33A13F',
@@ -29,8 +29,8 @@ const config: Config = {
         containerBgColor: '#F2F5F6',
         tablePink: '#F0E1EA',
         tableBrown: '#F0DFCC66',
-
         tableGreen: '#DBFCDF',
+        recipeCardPink: '#E88FB94D',
       },
       keyframes: {
         'caret-blink': {

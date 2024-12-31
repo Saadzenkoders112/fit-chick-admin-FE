@@ -7,7 +7,8 @@
 @layer base {
   :root {
     --chart-1: #f2f5f6;
-    --stroke: #6e683b
+    --stroke: #6e683b;
+    --chart-pink: #e88fb9
       /* --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
