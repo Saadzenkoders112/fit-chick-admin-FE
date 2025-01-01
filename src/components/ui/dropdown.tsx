@@ -19,7 +19,7 @@ import {
 } from '@/components/ui/popover';
 import { DropdownProps } from '@/types/Interfaces/common/dropdown-interface';
 
-const Dropdown: React.FC<DropdownProps> = ({ options }) => {
+const Dropdown: React.FC<DropdownProps> = ({ options, label }) => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState('');
 
@@ -33,11 +33,13 @@ const Dropdown: React.FC<DropdownProps> = ({ options }) => {
           variant='outline'
           role='combobox'
           aria-expanded={open}
-          className='w-[120px] justify-between'
+          className='min-w-[120px] w-auto justify-between'
         >
           {value
             ? options.find(option => option.value === value)?.label
-            : 'Sort by'}
+            : label
+              ? label
+              : 'Sort by'}
           <ChevronDown
             className={`opacity-50 duration-200 ${open ? 'rotate-180' : 'rotate-0'}`}
           />

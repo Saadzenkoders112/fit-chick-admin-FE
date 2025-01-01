@@ -2,11 +2,15 @@
 
 import { Button } from '@/components/ui/button';
 import AppHeader from '@/components/ui/header';
-import { influencersHeader } from '@/constants/influencers-header';
+import { flaggedContentHeader } from '@/constants/flagged-content-header';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
-const InfluencersAllLayout = ({ children }: { children: React.ReactNode }) => {
+const FlaggedContentAllLayout = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [active, setActive] = useState<string>('');
   const router = useRouter();
   const pathName = usePathname();
@@ -22,11 +26,17 @@ const InfluencersAllLayout = ({ children }: { children: React.ReactNode }) => {
       <AppHeader name='' />
       <div className='w-full h-full lg:mt-20 mt-0 flex flex-col gap-4 p-4'>
         <div className='flex flex-col gap-4'>
-          <p className='text-3xl font-playfair font-semibold'>
-            Influencers Listing
-          </p>
+          <div className='flex flex-col gap-2'>
+            <p className='text-3xl font-playfair font-semibold'>
+              Manage Reported Feeds and Challenges
+            </p>
+            <p className='text-gray-500 text-sm'>
+              Review and take action on content reported by users to ensure a
+              safe and positive community.
+            </p>
+          </div>
           <div className='flex gap-6'>
-            {influencersHeader.map((header, index) => (
+            {flaggedContentHeader.map((header, index) => (
               <Button
                 className={`pb-2 px-0 bg-white rounded-none hover:bg-white duration-200 ${active === header.value ? 'border-b border-primary text-primary' : 'text-gray-400'}`}
                 key={index}
@@ -46,4 +56,4 @@ const InfluencersAllLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default InfluencersAllLayout;
+export default FlaggedContentAllLayout;

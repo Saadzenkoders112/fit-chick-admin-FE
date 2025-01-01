@@ -11,7 +11,7 @@ import {
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
-const PendingInfluencersView = () => {
+const InfluencersView = () => {
   const pathName = usePathname();
 
   const data = [
@@ -95,4 +95,4 @@ const PendingInfluencersView = () => {
   );
 };
 
-export default PendingInfluencersView;
+export default InfluencersView;

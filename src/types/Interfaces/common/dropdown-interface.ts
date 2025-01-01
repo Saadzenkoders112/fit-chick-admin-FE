@@ -5,4 +5,5 @@ interface Option {
 
 export interface DropdownProps {
   options: Option[];
+  label?: string;
 }

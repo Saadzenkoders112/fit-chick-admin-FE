@@ -14,9 +14,9 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import arrowRight from '../../../../public/assets/images/arrow-right.svg';
-import { InfluencersTableProps } from '@/types/Interfaces/table-interface/table-interface';
+import { FlaggedTableProps } from '@/types/Interfaces/table-interface/table-interface';
 
-const InfluencersTable: React.FC<InfluencersTableProps> = ({
+const FlaggedContentTable: React.FC<FlaggedTableProps> = ({
   headers,
   data,
 }) => {
@@ -44,11 +44,15 @@ const InfluencersTable: React.FC<InfluencersTableProps> = ({
             key={index}
             className='text-textPrimary p-2'
           >
-            <TableCell>{item.name}</TableCell>
-            <TableCell>{item.email}</TableCell>
-            <TableCell>{item.ph_no}</TableCell>
-            <TableCell>{item.age}</TableCell>
-            {item.status && <TableCell>{item.status}</TableCell>}
+            <TableCell>{item.id}</TableCell>
+            {item.challenge_name && (
+              <TableCell>{item.challenge_name}</TableCell>
+            )}
+            <TableCell>{item.created_by}</TableCell>
+            <TableCell>{item.reported_by}</TableCell>
+            <TableCell>{item.date_reported}</TableCell>
+            <TableCell>{item.status}</TableCell>
+            <TableCell>{item.reason}</TableCell>
             <TableCell
               colSpan={1}
               className='w-max'
@@ -72,7 +76,7 @@ const InfluencersTable: React.FC<InfluencersTableProps> = ({
       </TableBody>
       <TableFooter>
         <TableRow>
-          <TableCell colSpan={6}>
+          <TableCell colSpan={8}>
             <TableFoot
               rowsPerPage={limit}
               setRowsPerPage={setLimit}
@@ -88,4 +92,4 @@ const InfluencersTable: React.FC<InfluencersTableProps> = ({
   );
 };
 
-export default InfluencersTable;
+export default FlaggedContentTable;

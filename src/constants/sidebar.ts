@@ -20,7 +20,7 @@ export const sidebarItems = [
     icon: 'fork-and-spoon',
   },
   {
-    path: '/flagged-content',
+    path: '/flagged-contents/all/social-feeds',
     name: 'Flagged Content',
     icon: 'flag',
   },

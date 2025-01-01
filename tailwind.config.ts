@@ -19,7 +19,7 @@ const config: Config = {
       },
       colors: {
         primary: '#6E683B',
-      secondary: '#E88FB9',
+        secondary: '#E88FB9',
         textPrimary: '#212636',
         tableBrownText: '#A18233',
         tableGreenText: '#33A13F',

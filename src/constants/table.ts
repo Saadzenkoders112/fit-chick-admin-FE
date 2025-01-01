@@ -50,3 +50,22 @@ export const InfluencerDetailsTableHeaders = [
   'Age',
   'Influencer Goal',
 ];
+
+export const FlaggedSocialFeedsHeaders = [
+  'Report ID',
+  'Created By',
+  'Reported By',
+  'Date Reported',
+  'Status',
+  'Reason',
+];
+
+export const FlaggedChallengesHeaders = [
+  'Report ID',
+  'Challenge Name',
+  'Created By',
+  'Reported By',
+  'Date Reported',
+  'Status',
+  'Reason',
+];
