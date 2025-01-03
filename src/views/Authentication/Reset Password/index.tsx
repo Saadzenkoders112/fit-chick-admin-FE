@@ -77,7 +77,7 @@ const ResetPassView = () => {
           className='text-sm'
         />
         <PasswordInput
-          label='Password'
+          label='Confirm Password'
           placeholder='Confirm New Password'
           name='confirm_password'
           value={formik.values.confirm_password}
@@ -86,7 +86,6 @@ const ResetPassView = () => {
           required={true}
           className='text-sm'
         />
-
         <Button className='text-white'>Save</Button>
       </form>
     </div>

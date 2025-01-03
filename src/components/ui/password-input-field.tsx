@@ -30,7 +30,7 @@ const PasswordInput: React.FC<CustomInputProps> = ({
         )}
       </div>
       <div
-        className={`flex justify-between items-center gap-2 rounded-lg p-4 group border focus-within:border-primary ${className ? className : ''}`}
+        className={`flex justify-between items-center gap-2 rounded-lg p-4 group border focus-within:border-primary focus-within:border-2 ${className ? className : ''}`}
       >
         <input
           type={isEye ? 'text' : 'password'}
