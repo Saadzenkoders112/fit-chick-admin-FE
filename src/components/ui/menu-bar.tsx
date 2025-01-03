@@ -30,14 +30,14 @@ const MenuSidebar = () => {
           {sidebarItems.map((item, index) => (
             <button
               key={index}
-              className={`p-2 flex gap-2 cursor-pointer items-center rounded-lg ${active === item.name.toLowerCase() ? 'bg-primary text-white' : 'text-primary'}`}
+              className={`p-2 flex gap-2 cursor-pointer items-center rounded-lg ${active === item.pathName ? 'bg-primary text-white' : 'text-primary'}`}
               onClick={() => {
-                setActive(item.name);
+                setActive(item.pathName);
                 router.push(item.path);
               }}
             >
               <Image
-                src={`/assets/images/${active === item.name.toLowerCase() ? item.icon : `${item.icon}-dark`}.svg`}
+                src={`/assets/images/${active === item.pathName ? item.icon : `${item.icon}-dark`}.svg`}
                 alt=''
                 height={16}
                 width={16}
