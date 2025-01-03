@@ -69,3 +69,10 @@ export const FlaggedChallengesHeaders = [
   'Status',
   'Reason',
 ];
+
+export const FlaggedContentDetailsHeaders = [
+  'Name',
+  'Email',
+  'Phone Number',
+  'Age',
+];

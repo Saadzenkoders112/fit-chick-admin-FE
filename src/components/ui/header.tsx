@@ -16,7 +16,7 @@ const AppHeader: React.FC<HeaderProps> = ({ name }) => {
   const pathname = usePathname();
   return (
     <div
-      className={`flex ${pathname === '/dashboard' ? 'justify-end' : 'justify-between'} items-center w-full p-4 lg:hidden sticky top-0 bg-white shadow-md`}
+      className={`flex ${pathname === '/dashboard' ? 'justify-end' : 'justify-between'} items-center w-full p-4 lg:hidden sticky top-0 bg-white z-20 shadow-md`}
     >
       <p
         className={`text-3xl font-playfair ${pathname === '/dashboard' ? 'hidden' : ''}`}

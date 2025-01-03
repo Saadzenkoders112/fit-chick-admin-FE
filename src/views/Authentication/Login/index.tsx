@@ -53,51 +53,53 @@ const SignInView: FC<ISignInViewProps> = () => {
       onSubmit={formik.handleSubmit}
       className='flex flex-col lg:items-start items-center gap-4 w-full px-10'
     >
-      <p className='text-3xl font-playfair font-semibold'>Login</p>
-      <div className='flex flex-col gap-1'>
-        <Input
-          label='Email'
-          placeholder='eg. john@ex.com'
-          name='email'
-          type='email'
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          required={true}
-          className='text-sm'
-        />
-        {formik.touched.email && formik.errors.email && (
-          <p className='text-xs text-red-500'>{formik.errors.email}</p>
-        )}
+      <div className='flex flex-col gap-4 sm:w-4/5 w-11/12'>
+        <p className='text-3xl font-playfair font-semibold'>Login</p>
+        <div className='flex flex-col gap-1'>
+          <Input
+            label='Email'
+            placeholder='eg. john@ex.com'
+            name='email'
+            type='email'
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            required={true}
+            className='text-sm'
+          />
+          {formik.touched.email && formik.errors.email && (
+            <p className='text-xs text-red-500'>{formik.errors.email}</p>
+          )}
+        </div>
+        <div className='flex flex-col gap-1'>
+          <PasswordInput
+            label='Password'
+            placeholder='abc@123'
+            name='password'
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            required={true}
+            className='text-sm'
+          />
+          {formik.touched.password && formik.errors.password && (
+            <p className='text-xs text-red-500'>{formik.errors.password}</p>
+          )}
+        </div>
+        <Link
+          href='/auth/forgot-password'
+          className='text-secondary text-sm text-end'
+        >
+          Forgot password
+        </Link>
+        <Button
+          type='submit'
+          className='text-center p-4 rounded-lg bg-primary text-white'
+          disabled={isSubmitting}
+        >
+          Login
+        </Button>
       </div>
-      <div className='flex flex-col gap-1'>
-        <PasswordInput
-          label='Password'
-          placeholder='abc@123'
-          name='password'
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          required={true}
-          className='text-sm'
-        />
-        {formik.touched.password && formik.errors.password && (
-          <p className='text-xs text-red-500'>{formik.errors.password}</p>
-        )}
-      </div>
-      <Link
-        href='/auth/forgot-password'
-        className='text-secondary text-sm text-end'
-      >
-        Forgot password
-      </Link>
-      <Button
-        type='submit'
-        className='text-center p-4 rounded-lg bg-primary text-white'
-        disabled={isSubmitting}
-      >
-        Login
-      </Button>
     </form>
   );
 };

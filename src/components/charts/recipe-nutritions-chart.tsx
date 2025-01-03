@@ -10,16 +10,21 @@ import {
   RadialBarChart,
 } from 'recharts';
 
-import { ChartConfig, ChartContainer } from '@/components/ui/chart';
+import flameIconLight from '../../../public/assets/images/flame-icon-pink.svg';
 
-const chartData = [{ browser: 'safari', visitors: 25, fill: 'var(--primary)' }];
+import { ChartConfig, ChartContainer } from '@/components/ui/chart';
+import Image from 'next/image';
+
+const chartData = [
+  { browser: 'safari', visitors: 25, fill: 'var(--chart-pink)' },
+];
 const chartConfig = {
   visitors: {
     label: 'Visitors',
   },
   safari: {
     label: 'Safari',
-    color: '#f6f6f6',
+    color: 'var(--chart-pink)',
   },
 } satisfies ChartConfig;
 
@@ -39,11 +44,11 @@ const RecipeNutritionChart = () => {
   ];
 
   return (
-    <Card className='flex flex-col border-none'>
-      <CardContent className='flex gap-4 pb-0'>
+    <Card className='flex flex-col items-start border-none'>
+      <CardContent className='flex flex-wrap pb-0 p-0'>
         <ChartContainer
           config={chartConfig}
-          className='mx-auto aspect-square max-h-[250px]'
+          className='mx-auto aspect-square w-max max-h-[250px]'
         >
           <RadialBarChart
             data={chartData}
@@ -63,7 +68,7 @@ const RecipeNutritionChart = () => {
               dataKey='visitors'
               background
               cornerRadius={10}
-              // fill='var(--chart-muted)'
+              fill='var(--chart-muted)'
             />
             <PolarRadiusAxis
               tick={false}
@@ -81,12 +86,24 @@ const RecipeNutritionChart = () => {
                         dominantBaseline='middle'
                         className='fill-primary'
                       >
-                        <tspan
+                        {/* <tspan
                           x={viewBox.cx}
                           y={viewBox.cy}
                           className='fill-foreground text-4xl font-bold'
                         >
                           {chartData1[0].visitors.toLocaleString()}
+                        </tspan> */}
+                        <tspan
+                          x={viewBox.cx}
+                          y={viewBox.cy}
+                          className='fill-foreground text-4xl font-bold'
+                        >
+                          <Image
+                            src={flameIconLight}
+                            alt='flame-icon'
+                            height={25}
+                            width={25}
+                          />
                         </tspan>
                         <tspan
                           x={viewBox.cx}
@@ -106,7 +123,7 @@ const RecipeNutritionChart = () => {
 
         <ChartContainer
           config={chartConfig}
-          className='mx-auto aspect-square max-h-[250px]'
+          className='mx-auto aspect-square w-max max-h-[250px]'
         >
           <RadialBarChart
             data={chartData}

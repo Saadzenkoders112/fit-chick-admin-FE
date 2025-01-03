@@ -105,11 +105,28 @@ const RecipeDetailsView = () => {
                   ></source>
                   Your browser does not support the video tag.
                 </video> */}
+                <video
+                  className='w-full'
+                  controls
+                >
+                  <source
+                    src='/docs/videos/flowbite.mp4'
+                    type='video/mp4'
+                  />
+                  <track
+                    kind='captions'
+                    src='captions.vtt'
+                    // srclang='en'
+                    label='English'
+                    default
+                  />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </div>
           <div className='flex justify-end gap-2 items-center'>
-            <Button className='bg-gray-100 hover:bg-white flex gap-2 items-center w-24'>
+            <Button className='bg-gray-100 hover:bg-gray-100 hover:opacity-85 flex gap-2 items-center w-24'>
               <Image
                 src={trashIcon}
                 alt='trash-icon'

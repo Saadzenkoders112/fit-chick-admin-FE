@@ -9,6 +9,14 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
+
 import TableFoot from '../table-components/table-footer';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
@@ -24,6 +32,7 @@ const FlaggedContentTable: React.FC<FlaggedTableProps> = ({
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(10);
   const router = useRouter();
+
   const pathName = usePathname();
   const pathsArray = pathName.split('/');
   const currentPath = pathsArray[pathsArray.length - 1];
@@ -52,7 +61,21 @@ const FlaggedContentTable: React.FC<FlaggedTableProps> = ({
             <TableCell>{item.reported_by}</TableCell>
             <TableCell>{item.date_reported}</TableCell>
             <TableCell>{item.status}</TableCell>
-            <TableCell>{item.reason}</TableCell>
+            <TableCell className='relative w-[200px] h-[10px] truncate overflow-hidden text-ellipsis border'>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger
+                    asChild
+                    className='line-clamp-1'
+                  >
+                    <div className='w-40 h-6 cursor-pointer'>{item.reason}</div>
+                  </TooltipTrigger>
+                  <TooltipContent className='bg-white w-80 h-32 overflow-y-auto p-2'>
+                    <div>{item.reason}</div>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </TableCell>
             <TableCell
               colSpan={1}
               className='w-max'
@@ -60,7 +83,9 @@ const FlaggedContentTable: React.FC<FlaggedTableProps> = ({
               <Button
                 className='bg-white hover:bg-white w-12'
                 onClick={() =>
-                  router.push(`/influencers/influencer-details/${currentPath}`)
+                  router.push(
+                    `/flagged-contents/flagged-content-details/${currentPath}`,
+                  )
                 }
               >
                 <Image
